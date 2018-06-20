@@ -29,6 +29,10 @@ import org.apache.spark.internal.Logging
 
 /**
  * An event bus which posts events to its listeners.
+ * 接收事件并且将事件提交到对应事件的监听器.
+ *
+ * @tparam L 代表监听器的泛型参数，可以看到 ListenerBus 支持任何类型的监听器
+ * @tparam E 代表事件的泛型参数
  */
 private[spark] trait ListenerBus[L <: AnyRef, E] extends Logging {
 

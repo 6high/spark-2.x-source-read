@@ -40,6 +40,10 @@ import org.apache.spark.metrics.source.Source
  * Until `start()` is called, all posted events are only buffered. Only after this listener bus
  * has started will events be actually propagated to all attached listeners. This listener bus
  * is stopped when `stop()` is called, and it will drop further events after stopping.
+ *
+ * @see <a href="https://issues.apache.org/jira/browse/SPARK-18838" target="_blank">[SPARK-18838]
+ *      </a>
+ * 对[[LiveListenerBus]]修改, 使得[[LiveListenerBus]]不再继承[[SparkListenerBus]]
  */
 private[spark] class LiveListenerBus(conf: SparkConf) {
 

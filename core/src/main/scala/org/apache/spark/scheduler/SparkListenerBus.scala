@@ -25,6 +25,13 @@ import org.apache.spark.util.ListenerBus
 private[spark] trait SparkListenerBus
   extends ListenerBus[SparkListenerInterface, SparkListenerEvent] {
 
+  /**
+   * SparkListenerBus 实现了 ListenerBus 的 doPostEvent 方法，通过对 Spark ListenerEvent 事件的模式匹配，
+   * 执行 SparkListenerInterface 监听器的相应方法。
+   *
+   * @param listener
+   * @param event 继承自 SparkListenerInterface 这个 trait 的case class
+   */
   protected override def doPostEvent(
       listener: SparkListenerInterface,
       event: SparkListenerEvent): Unit = {
